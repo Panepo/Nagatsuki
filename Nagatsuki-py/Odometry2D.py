@@ -36,6 +36,18 @@ class VisualOdometry:
     self.dataset = False
     self.trueX, self.trueY, self.trueZ = 0, 0, 0
     self.detector = featureDetection()
+    self.prob = 0.999
+    self.thre = 1.0
+    self.scale = 1.0
+
+  def readAnnotations(self, annotations):
+    with open(annotations) as f:
+      self.annotations = np.genfromtxt(f, delimiter=' ',dtype=None)
+
+  def setParameter(self, prob, thre, scale):
+    self.prob = prob
+    self.thre = thre
+    self.scale = scale
 
   def getAbsoluteScale(self, frame_id):  #specialized for KITTI odometry dataset
     ss = self.annotations[frame_id-1].strip().split()
@@ -56,7 +68,7 @@ class VisualOdometry:
 
   def processSecondFrame(self):
     self.px_ref, self.px_cur = featureTracking(self.last_frame, self.new_frame, self.px_ref)
-    E, mask = cv2.findEssentialMat(self.px_cur, self.px_ref, focal=self.focal, pp=self.pp, method=cv2.RANSAC, prob=0.999, threshold=1.0)
+    E, mask = cv2.findEssentialMat(self.px_cur, self.px_ref, focal=self.focal, pp=self.pp, method=cv2.RANSAC, prob=self.prob, threshold=self.thre)
     _, self.cur_R, self.cur_t, mask = cv2.recoverPose(E, self.px_cur, self.px_ref, focal=self.focal, pp = self.pp)
     self.frame_stage = STAGE_DEFAULT_FRAME
     self.px_ref = self.px_cur
@@ -67,7 +79,7 @@ class VisualOdometry:
       self.px_ref = np.array([x.pt for x in self.px_ref], dtype=np.float32)
 
     self.px_ref, self.px_cur = featureTracking(self.last_frame, self.new_frame, self.px_ref)
-    E, mask = cv2.findEssentialMat(self.px_cur, self.px_ref, focal=self.focal, pp=self.pp, method=cv2.RANSAC, prob=0.999, threshold=1.0)
+    E, mask = cv2.findEssentialMat(self.px_cur, self.px_ref, focal=self.focal, pp=self.pp, method=cv2.RANSAC, prob=self.prob, threshold=self.thre)
     _, R, t, mask = cv2.recoverPose(E, self.px_cur, self.px_ref, focal=self.focal, pp = self.pp)
 
     if (self.dataset):
@@ -76,7 +88,7 @@ class VisualOdometry:
         self.cur_t = self.cur_t + absolute_scale*self.cur_R.dot(t)
         self.cur_R = R.dot(self.cur_R)
     else:
-      self.cur_t = self.cur_t + self.cur_R.dot(t)
+      self.cur_t = self.cur_t + self.scale * self.cur_R.dot(t)
       self.cur_R = R.dot(self.cur_R)
 
     self.px_ref = self.px_cur
