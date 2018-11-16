@@ -33,7 +33,7 @@ class VisualOdometry:
     self.px_cur = None
     self.focal = cam.fx
     self.pp = (cam.cx, cam.cy)
-    self.dataset = False
+    self.dataset = dataset
     self.trueX, self.trueY, self.trueZ = 0, 0, 0
     self.detector = featureDetection()
     self.prob = 0.999
@@ -43,6 +43,7 @@ class VisualOdometry:
   def readAnnotations(self, annotations):
     with open(annotations) as f:
       self.annotations = np.genfromtxt(f, delimiter=' ',dtype=None)
+      self.annoLength = len(self.annotations)
 
   def setParameter(self, prob, thre, scale):
     self.prob = prob
@@ -50,16 +51,10 @@ class VisualOdometry:
     self.scale = scale
 
   def getAbsoluteScale(self, frame_id):  #specialized for KITTI odometry dataset
-    ss = self.annotations[frame_id-1].strip().split()
-    x_prev = float(ss[3])
-    y_prev = float(ss[7])
-    z_prev = float(ss[11])
-    ss = self.annotations[frame_id].strip().split()
-    x = float(ss[3])
-    y = float(ss[7])
-    z = float(ss[11])
+    x_pre, y_pre, z_pre = self.annotations[frame_id-1][3], self.annotations[frame_id-1][7], self.annotations[frame_id-1][11]
+    x, y, z = self.annotations[frame_id][3], self.annotations[frame_id][7], self.annotations[frame_id][11]
     self.trueX, self.trueY, self.trueZ = x, y, z
-    return np.sqrt((x - x_prev)*(x - x_prev) + (y - y_prev)*(y - y_prev) + (z - z_prev)*(z - z_prev))
+    return np.sqrt((x - x_pre)*(x - x_pre) + (y - y_pre)*(y - y_pre) + (z - z_pre)*(z - z_pre))
 
   def processFirstFrame(self):
     self.px_ref = self.detector.detect(self.new_frame)
