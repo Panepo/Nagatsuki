@@ -360,18 +360,13 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-image/
-imageTrain/
-imageValidate/
-imageTrain*/
-imageValidate*/
 
 *.dll
-
 *.bin
 *.xml
 *.pb
 
 *.bmp
 *.png
-Yayoi-openvino-python/openvino/
+KeyFrameTrajectory.txt
+ReadMe.txt
