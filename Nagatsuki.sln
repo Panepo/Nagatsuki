@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Nagatsuki-console", "Nagatsuki-console\Nagatsuki-console.vcxproj", "{F0062410-491C-45B9-A4B8-B8723EAF8993}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Nagatsuki-kitti", "Nagatsuki-kitti\Nagatsuki-kitti.vcxproj", "{E8B4F11F-812C-4699-8710-EBA08D6CA479}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Nagatsuki-camera", "Nagatsuki-camera\Nagatsuki-camera.vcxproj", "{4A2726AB-ED44-4C64-8F59-53CC4893217D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Nagatsuki-kitti-stereo", "Nagatsuki-kitti-stereo\Nagatsuki-kitti-stereo.vcxproj", "{106181AF-ED4C-48CC-B6C6-624A24B4A719}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,14 +17,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F0062410-491C-45B9-A4B8-B8723EAF8993}.Debug|x64.ActiveCfg = Debug|x64
-		{F0062410-491C-45B9-A4B8-B8723EAF8993}.Debug|x64.Build.0 = Debug|x64
-		{F0062410-491C-45B9-A4B8-B8723EAF8993}.Debug|x86.ActiveCfg = Debug|Win32
-		{F0062410-491C-45B9-A4B8-B8723EAF8993}.Debug|x86.Build.0 = Debug|Win32
-		{F0062410-491C-45B9-A4B8-B8723EAF8993}.Release|x64.ActiveCfg = Release|x64
-		{F0062410-491C-45B9-A4B8-B8723EAF8993}.Release|x64.Build.0 = Release|x64
-		{F0062410-491C-45B9-A4B8-B8723EAF8993}.Release|x86.ActiveCfg = Release|Win32
-		{F0062410-491C-45B9-A4B8-B8723EAF8993}.Release|x86.Build.0 = Release|Win32
 		{E8B4F11F-812C-4699-8710-EBA08D6CA479}.Debug|x64.ActiveCfg = Debug|x64
 		{E8B4F11F-812C-4699-8710-EBA08D6CA479}.Debug|x64.Build.0 = Debug|x64
 		{E8B4F11F-812C-4699-8710-EBA08D6CA479}.Debug|x86.ActiveCfg = Debug|Win32
@@ -31,6 +25,22 @@ Global
 		{E8B4F11F-812C-4699-8710-EBA08D6CA479}.Release|x64.Build.0 = Release|x64
 		{E8B4F11F-812C-4699-8710-EBA08D6CA479}.Release|x86.ActiveCfg = Release|Win32
 		{E8B4F11F-812C-4699-8710-EBA08D6CA479}.Release|x86.Build.0 = Release|Win32
+		{4A2726AB-ED44-4C64-8F59-53CC4893217D}.Debug|x64.ActiveCfg = Debug|x64
+		{4A2726AB-ED44-4C64-8F59-53CC4893217D}.Debug|x64.Build.0 = Debug|x64
+		{4A2726AB-ED44-4C64-8F59-53CC4893217D}.Debug|x86.ActiveCfg = Debug|Win32
+		{4A2726AB-ED44-4C64-8F59-53CC4893217D}.Debug|x86.Build.0 = Debug|Win32
+		{4A2726AB-ED44-4C64-8F59-53CC4893217D}.Release|x64.ActiveCfg = Release|x64
+		{4A2726AB-ED44-4C64-8F59-53CC4893217D}.Release|x64.Build.0 = Release|x64
+		{4A2726AB-ED44-4C64-8F59-53CC4893217D}.Release|x86.ActiveCfg = Release|Win32
+		{4A2726AB-ED44-4C64-8F59-53CC4893217D}.Release|x86.Build.0 = Release|Win32
+		{106181AF-ED4C-48CC-B6C6-624A24B4A719}.Debug|x64.ActiveCfg = Debug|x64
+		{106181AF-ED4C-48CC-B6C6-624A24B4A719}.Debug|x64.Build.0 = Debug|x64
+		{106181AF-ED4C-48CC-B6C6-624A24B4A719}.Debug|x86.ActiveCfg = Debug|Win32
+		{106181AF-ED4C-48CC-B6C6-624A24B4A719}.Debug|x86.Build.0 = Debug|Win32
+		{106181AF-ED4C-48CC-B6C6-624A24B4A719}.Release|x64.ActiveCfg = Release|x64
+		{106181AF-ED4C-48CC-B6C6-624A24B4A719}.Release|x64.Build.0 = Release|x64
+		{106181AF-ED4C-48CC-B6C6-624A24B4A719}.Release|x86.ActiveCfg = Release|Win32
+		{106181AF-ED4C-48CC-B6C6-624A24B4A719}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
