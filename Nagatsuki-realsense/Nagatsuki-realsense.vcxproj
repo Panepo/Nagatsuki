@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{4A2726AB-ED44-4C64-8F59-53CC4893217D}</ProjectGuid>
+    <ProjectGuid>{0009821A-5A94-481A-92D8-8406FC655C07}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Nagatsukicamera</RootNamespace>
+    <RootNamespace>Nagatsukirealsense</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -126,7 +126,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\Github\ORBSLAM24Windows;D:\Github\ORBSLAM24Windows\include;D:\Github\ORBSLAM24Windows\Thirdparty\eigen;D:\Github\ORBSLAM24Windows\Thirdparty\Pangolin\include;D:\Github\ORBSLAM24Windows\Thirdparty\Pangolin\build\src\include;D:\Github\ORBSLAM24Windows\Thirdparty\Pangolin\build\external\glew\include;D:\Library\opencv\build\include;D:\Library\opencv\build\include\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Library\librealsense\include;D:\Github\ORBSLAM24Windows;D:\Github\ORBSLAM24Windows\include;D:\Github\ORBSLAM24Windows\Thirdparty\eigen;D:\Github\ORBSLAM24Windows\Thirdparty\Pangolin\include;D:\Github\ORBSLAM24Windows\Thirdparty\Pangolin\build\src\include;D:\Github\ORBSLAM24Windows\Thirdparty\Pangolin\build\external\glew\include;D:\Library\opencv\build\include;D:\Library\opencv\build\include\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) -bigobj</AdditionalOptions>
       <AssemblerListingLocation>Release/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
@@ -156,8 +156,8 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\lib\Release\ORB_SLAM2.lib;D:\Library\opencv\build\x64\vc14\lib\opencv_world343.lib;D:\Library\opencv\build\x64\vc14\lib\opencv_world343.lib;D:\Library\opencv\build\x64\vc14\lib\opencv_world343.lib;D:\Library\opencv\build\x64\vc14\lib\opencv_world343.lib;D:\Library\opencv\build\x64\vc14\lib\opencv_world343.lib;D:\Library\opencv\build\x64\vc14\lib\opencv_world343.lib;D:\Library\opencv\build\x64\vc14\lib\opencv_world343.lib;D:\Library\opencv\build\x64\vc14\lib\opencv_world343.lib;D:\Library\opencv\build\x64\vc14\lib\opencv_world343.lib;D:\Library\opencv\build\x64\vc14\lib\opencv_world343.lib;D:\Library\opencv\build\x64\vc14\lib\opencv_world343.lib;D:\Library\opencv\build\x64\vc14\lib\opencv_world343.lib;D:\Library\opencv\build\x64\vc14\lib\opencv_world343.lib;D:\Library\opencv\build\x64\vc14\lib\opencv_world343.lib;D:\Library\opencv\build\x64\vc14\lib\opencv_world343.lib;D:\Library\opencv\build\x64\vc14\lib\opencv_world343.lib;D:\Library\opencv\build\x64\vc14\lib\opencv_world343.lib;D:\Library\opencv\build\x64\vc14\lib\opencv_world343.lib;..\Thirdparty\Pangolin\lib\Release\pangolin.lib;opengl32.lib;glu32.lib;..\Thirdparty\Pangolin\build\external\glew\lib\glew.lib;..\Thirdparty\Pangolin\build\external\libpng\lib\libpng16_static.lib;..\Thirdparty\Pangolin\build\external\zlib\lib\zlibstatic.lib;..\Thirdparty\Pangolin\build\external\libjpeg\lib\jpeg.lib;C:\ProgramData\Anaconda3\Library\lib\tiff.lib;DBoW2.lib;g2o.lib;pangolin.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:/Github/ORBSLAM24Windows/Thirdparty/DBoW2/lib;D:/Github/ORBSLAM24Windows/Thirdparty/DBoW2/lib/$(Configuration);D:/Github/ORBSLAM24Windows/Thirdparty/g2o/lib;D:/Github/ORBSLAM24Windows/Thirdparty/g2o/lib/$(Configuration);D:/Github/ORBSLAM24Windows/Thirdparty/Pangolin/lib;D:/Github/ORBSLAM24Windows/Thirdparty/Pangolin/lib/$(Configuration);D:/Github/ORBSLAM24Windows/lib;D:/Github/ORBSLAM24Windows/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>realsense2.lib;..\lib\Release\ORB_SLAM2.lib;D:\Library\opencv\build\x64\vc14\lib\opencv_world343.lib;..\Thirdparty\Pangolin\lib\Release\pangolin.lib;opengl32.lib;glu32.lib;..\Thirdparty\Pangolin\build\external\glew\lib\glew.lib;..\Thirdparty\Pangolin\build\external\libpng\lib\libpng16_static.lib;..\Thirdparty\Pangolin\build\external\zlib\lib\zlibstatic.lib;..\Thirdparty\Pangolin\build\external\libjpeg\lib\jpeg.lib;C:\ProgramData\Anaconda3\Library\lib\tiff.lib;DBoW2.lib;g2o.lib;pangolin.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Library\librealsense\lib\x64;D:/Github/ORBSLAM24Windows/Thirdparty/DBoW2/lib;D:/Github/ORBSLAM24Windows/Thirdparty/DBoW2/lib/$(Configuration);D:/Github/ORBSLAM24Windows/Thirdparty/g2o/lib;D:/Github/ORBSLAM24Windows/Thirdparty/g2o/lib/$(Configuration);D:/Github/ORBSLAM24Windows/Thirdparty/Pangolin/lib;D:/Github/ORBSLAM24Windows/Thirdparty/Pangolin/lib/$(Configuration);D:/Github/ORBSLAM24Windows/lib;D:/Github/ORBSLAM24Windows/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
@@ -169,11 +169,16 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="configCamera.h" />
+    <ClInclude Include="funcFormat.h" />
+    <ClInclude Include="funcStream.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Nagatsuki-camera.cpp" />
+    <ClCompile Include="funcFormat.cpp" />
+    <ClCompile Include="funcStream.cpp" />
+    <ClCompile Include="Nagatsuki-realsense.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
