@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Nagatsuki-realsense", "Naga
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Nagatsuki-realsense-stereo", "Nagatsuki-realsense-stereo\Nagatsuki-realsense-stereo.vcxproj", "{BE0AAB04-AE7A-48CA-8CA4-AEA60CA65C47}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Nagatsuki-tum-rgbd", "Nagatsuki-tum-rgbd\Nagatsuki-tum-rgbd.vcxproj", "{096DF0FA-7F59-426B-9E64-A34880C03006}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -61,6 +63,14 @@ Global
 		{BE0AAB04-AE7A-48CA-8CA4-AEA60CA65C47}.Release|x64.Build.0 = Release|x64
 		{BE0AAB04-AE7A-48CA-8CA4-AEA60CA65C47}.Release|x86.ActiveCfg = Release|Win32
 		{BE0AAB04-AE7A-48CA-8CA4-AEA60CA65C47}.Release|x86.Build.0 = Release|Win32
+		{096DF0FA-7F59-426B-9E64-A34880C03006}.Debug|x64.ActiveCfg = Debug|x64
+		{096DF0FA-7F59-426B-9E64-A34880C03006}.Debug|x64.Build.0 = Debug|x64
+		{096DF0FA-7F59-426B-9E64-A34880C03006}.Debug|x86.ActiveCfg = Debug|Win32
+		{096DF0FA-7F59-426B-9E64-A34880C03006}.Debug|x86.Build.0 = Debug|Win32
+		{096DF0FA-7F59-426B-9E64-A34880C03006}.Release|x64.ActiveCfg = Release|x64
+		{096DF0FA-7F59-426B-9E64-A34880C03006}.Release|x64.Build.0 = Release|x64
+		{096DF0FA-7F59-426B-9E64-A34880C03006}.Release|x86.ActiveCfg = Release|Win32
+		{096DF0FA-7F59-426B-9E64-A34880C03006}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

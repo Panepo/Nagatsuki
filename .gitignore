@@ -369,6 +369,7 @@ $RECYCLE.BIN/
 *.bmp
 *.png
 KeyFrameTrajectory.txt
+CameraTrajectory.txt
 ReadMe.txt
 *.yaml
 ORBvoc.txt
