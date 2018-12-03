@@ -20,15 +20,15 @@ int main(int argc, char * argv[]) try
 	// RealSense settings
 	rs2::pipeline pipeline;
 	rs2::config config;
-	config.enable_stream(RS2_STREAM_COLOR, 1280, 720, RS2_FORMAT_BGR8, 30);
-	config.enable_stream(RS2_STREAM_DEPTH, 1280, 720, RS2_FORMAT_Z16, 30);
+	config.enable_stream(RS2_STREAM_COLOR, 640, 480, RS2_FORMAT_BGR8, 30);
+	config.enable_stream(RS2_STREAM_DEPTH, 640, 480, RS2_FORMAT_Z16, 30);
 	rs2::pipeline_profile cfg = pipeline.start(config);
 
 	rs2::align alignTo(RS2_STREAM_COLOR);
-	rs2::decimation_filter filterDec;
-	rs2::spatial_filter filterSpat;
-	rs2::temporal_filter filterTemp;
-	filterSpat.set_option(RS2_OPTION_HOLES_FILL, 5);
+	// rs2::decimation_filter filterDec;
+	// rs2::spatial_filter filterSpat;
+	// rs2::temporal_filter filterTemp;
+	// filterSpat.set_option(RS2_OPTION_HOLES_FILL, 5);
 
 	// ORB SLAM settings
 	ORB_SLAM2::System SLAM("ORBvoc.txt", "realsense-rgbd.yaml", ORB_SLAM2::System::RGBD, true);
@@ -41,14 +41,15 @@ int main(int argc, char * argv[]) try
 
 	std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
 	std::chrono::steady_clock::time_point t2 = t1;
+	typedef std::chrono::duration<double, std::ratio<1, 1000>> ms;
 
 	for (;;)
 	{
 		rs2::frameset data = pipeline.wait_for_frames();
 		rs2::frameset alignedFrame = alignTo.process(data);
 		rs2::depth_frame depth = alignedFrame.get_depth_frame();
-		depth = filterSpat.process(depth);
-		depth = filterTemp.process(depth);
+		// depth = filterSpat.process(depth);
+		// depth = filterTemp.process(depth);
 
 		frame1 = funcFormat::frame2Mat(alignedFrame.get_color_frame());
 		frame2 = funcFormat::frame2Mat(depth);
@@ -56,14 +57,19 @@ int main(int argc, char * argv[]) try
 		input2 = frame2.clone();
 
 		t1 = std::chrono::steady_clock::now();
-
+		tframe = std::chrono::duration_cast<ms>(t1 - t2).count();
 		if (slam)
 		{
-			tframe = std::chrono::duration_cast<std::chrono::duration<double> >(t1 - t2).count();
 			SLAM.TrackRGBD(input1, input2, tframe);
 		}
-
 		t2 = t1;
+		std::ostringstream strs;
+		strs << tframe;
+		std::string str = strs.str() + " ms";
+
+		cv::Size size = input1.size();
+		cv::putText(input1, str, cv::Point(10, size.height - 10), inforerFontA, 1, inforerColorFA, 1, cv::LINE_AA);
+		cv::putText(input1, str, cv::Point(10, size.height - 10), inforerFontB, 1, inforerColorFB, 1, cv::LINE_AA);
 
 		cv::imshow("Road facing camera", input1);
 		// cv::imshow("Depth", input2);

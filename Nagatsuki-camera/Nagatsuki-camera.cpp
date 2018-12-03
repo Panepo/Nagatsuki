@@ -33,9 +33,11 @@ int main(int argc, char * argv[]) try
 
 	cv::Mat frame, input, inputGray;
 	bool slam = false;
+	double tframe;
 
 	std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
 	std::chrono::steady_clock::time_point t2 = t1;
+	typedef std::chrono::duration<double, std::ratio<1, 1000>> ms;
 
 	for (;;)
 	{
@@ -46,15 +48,20 @@ int main(int argc, char * argv[]) try
 		frame.copyTo(input);
 	
 		t1 = std::chrono::steady_clock::now();
-
+		tframe = std::chrono::duration_cast<ms>(t1 - t2).count();
 		if (slam)
 		{
 			cv::cvtColor(input, inputGray, cv::COLOR_BGR2GRAY);
-			double tframe = std::chrono::duration_cast<std::chrono::duration<double> >(t1 - t2).count();
 			SLAM.TrackMonocular(inputGray, tframe);
 		}
-
 		t2 = t1;
+		std::ostringstream strs;
+		strs << tframe;
+		std::string str = strs.str() + " ms";
+
+		cv::Size size = input.size();
+		cv::putText(input, str, cv::Point(10, size.height - 10), cv::FONT_HERSHEY_DUPLEX, 1, cv::Scalar(0, 0, 0), 1, cv::LINE_AA);
+		cv::putText(input, str, cv::Point(10, size.height - 10), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(0, 255, 0), 1, cv::LINE_AA);
 		cv::imshow("Road facing camera", input);
 
 		char c = (char)cv::waitKey(10);

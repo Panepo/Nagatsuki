@@ -20,7 +20,7 @@ int main(int argc, char * argv[]) try
 	// RealSense settings
 	rs2::pipeline pipeline;
 	rs2::config config;
-	config.enable_stream(RS2_STREAM_COLOR, 1280, 720, RS2_FORMAT_BGR8, 30);
+	config.enable_stream(RS2_STREAM_COLOR, 640, 480, RS2_FORMAT_BGR8, 30);
 	rs2::pipeline_profile cfg = pipeline.start(config);
 
 	// ORB SLAM settings
@@ -34,6 +34,7 @@ int main(int argc, char * argv[]) try
 
 	std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
 	std::chrono::steady_clock::time_point t2 = t1;
+	typedef std::chrono::duration<double, std::ratio<1, 1000>> ms;
 
 	for (;;)
 	{
@@ -42,15 +43,20 @@ int main(int argc, char * argv[]) try
 		input = frame.clone();
 
 		t1 = std::chrono::steady_clock::now();
-
+		tframe = std::chrono::duration_cast<ms>(t1 - t2).count();
 		if (slam)
 		{
 			cv::cvtColor(input, inputGray, cv::COLOR_BGR2GRAY);
-			tframe = std::chrono::duration_cast<std::chrono::duration<double> >(t1 - t2).count();
 			SLAM.TrackMonocular(inputGray, tframe);
 		}
-
 		t2 = t1;
+		std::ostringstream strs;
+		strs << tframe;
+		std::string str = strs.str() + " ms";
+
+		cv::Size size = input.size();
+		cv::putText(input, str, cv::Point(10, size.height - 10), inforerFontA, 1, inforerColorFA, 1, cv::LINE_AA);
+		cv::putText(input, str, cv::Point(10, size.height - 10), inforerFontB, 1, inforerColorFB, 1, cv::LINE_AA);
 
 		cv::imshow("Road facing camera", input);
 
