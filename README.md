@@ -10,7 +10,7 @@ An implementation of ORB_SLAM2 in Windows platform with Intel® RealSense™
 
 * OpenCV 3.4.3
 * [ORB_SLAM24Windows](https://github.com/phdsky/ORBSLAM24Windows)
-* [librealsense](https://github.com/IntelRealSense/librealsense)
+* [librealsense](https://github.com/IntelRealSense/librealsense) 2.16.3
 * Visual Studio 2015
 * Python 3.6
 
@@ -39,9 +39,13 @@ python tum-associate.py PATH_TO_SEQUENCE/rgb.txt PATH_TO_SEQUENCE/depth.txt > as
 
 ### Webcam
 
+Grab webcam calibration and distortion parameters by yourselves, there is no common methods to get them.
+
 * RGB Mode: only RGB mode is allowed for webcam.
 
 ### Intel RealSense
+
+First get RealSense intrin and extrin parameter using this python script [getRealsense.py](https://github.com/Panepo/Nagatsuki/blob/master/Scripts/getRealsense.py), then fill the parameter to realsense.yaml, realsense-stereo.yaml and realsense-rgbd.yaml for RGB, Stereo and RGBD mode respectively.
 
 * RGB Mode: Input source is set as RGB camera of RealSense.
 * Stereo Mode: Input source is set as two infrared cameras of RealSense.
