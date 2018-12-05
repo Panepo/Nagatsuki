@@ -1,6 +1,6 @@
 # [Nagatsuki](https://panepo.github.io/Nagatsuki/)
 
-An implementation of ORB_SLAM2 in Windows platform with Intel® RealSense™
+An implementation of ORB_SLAM2 in Windows platform with webcam or Intel® RealSense™
 
 ## Thanks
 
@@ -16,7 +16,7 @@ An implementation of ORB_SLAM2 in Windows platform with Intel® RealSense™
 
 ## Requirements
 
-* Intel® RealSense™ 415 / 435
+* Intel® RealSense™ 415/435
 * Webcam
 
 ## Results
@@ -43,7 +43,7 @@ Grab webcam calibration and distortion parameters by yourselves, there is no com
 
 * RGB Mode: only RGB mode is allowed for webcam.
 
-### Intel RealSense
+### Intel® RealSense™ 415/435
 
 First get RealSense intrin and extrin parameter using this python script [getRealsense.py](https://github.com/Panepo/Nagatsuki/blob/master/Scripts/getRealsense.py), then fill the parameter to realsense.yaml, realsense-stereo.yaml and realsense-rgbd.yaml for RGB, Stereo and RGBD mode respectively.
 
