@@ -366,8 +366,6 @@ $RECYCLE.BIN/
 *.xml
 *.pb
 
-*.bmp
-*.png
 KeyFrameTrajectory.txt
 CameraTrajectory.txt
 ReadMe.txt
