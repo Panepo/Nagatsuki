@@ -21,14 +21,12 @@ An implementation of ORB_SLAM2 in Windows platform with webcam or Intel® RealSe
 
 ## Usage and Results
 
-### Dataset
-
-* [KITTI Dataset](http://www.cvlibs.net/datasets/kitti/eval_odometry.php)
+### KITTI Dataset
 
 1. Download the dataset (grayscale images) from [http://www.cvlibs.net/datasets/kitti/eval_odometry.php](http://www.cvlibs.net/datasets/kitti/eval_odometry.php)
 2. Execute the following command. Change `KITTIX.yaml`to KITTI00-02.yaml, KITTI03.yaml or KITTI04-12.yaml for sequence 0 to 2, 3, and 4 to 12 respectively. Change `PATH_TO_DATASET_FOLDER` to the uncompressed dataset folder. Change `SEQUENCE_NUMBER` to 00, 01, 02,.., 11.
 
-* [TUM Dataset](http://vision.in.tum.de/data/datasets/rgbd-dataset/download)
+### TUM Dataset
 
 1. Download a sequence from [http://vision.in.tum.de/data/datasets/rgbd-dataset/download](http://vision.in.tum.de/data/datasets/rgbd-dataset/download) and uncompress it.
 2. Associate RGB images and depth images using the python script [tum-associate.py](https://github.com/Panepo/Nagatsuki/blob/master/Scripts/tum-associate.py). We already provide associations for some of the sequences in Examples/RGB-D/associations/. You can generate your own associations file executing:
