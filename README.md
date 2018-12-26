@@ -1,10 +1,32 @@
 # Nagatsuki
 
+[![Build status](https://ci.appveyor.com/api/projects/status/5qbnuk7k0iagj7av?svg=true)](https://ci.appveyor.com/project/Panepo/nagatsuki)
+
 An implementation of ORB_SLAM2 in Windows platform with webcam or Intel® RealSense™
 
 ## Thanks
 
+* [Mur-Atal](https://github.com/raulmur)
+* [ORB-SLAM](https://github.com/raulmur/ORB_SLAM)
 * [ORB_SLAM2](https://github.com/raulmur/ORB_SLAM2)
+
+## FAQ
+
+### What is this?
+
+This is an implementation of visual SLAM algorithm using ORB_SLAM2 library in Windows platform with your webcam or Intel® RealSense™. ORB_SLAM2 is a real-time SLAM library for Monocular, Stereo and RGB-D cameras that computes the camera trajectory and a sparse 3D reconstruction (in the stereo and RGB-D case with true scale).
+
+### SLAM?
+
+Simultaneous localization and mapping (SLAM) is the computational problem of constructing or updating a map of an unknown environment while simultaneously keeping track of an agent's location within it.
+
+### Augmented Reality?
+
+Right, SLAM is the basis of the augmented reality: The device needed to know it's 3D position in the world. When an AR app starts, the system doesn’t know much about the environment. It starts processing data from various sensors like camera. To improve accuracy, the device combines data from other useful sensors like the accelerometer and the gyroscope.
+
+### Visual SLAM
+
+Visual SLAM is the SLAM system which process data only come from the camera, so doesn’t use odometry by accelerometers and gyroscopes. A very well working and recent algorithm is [ORB-SLAM](https://github.com/raulmur/ORB_SLAM) by [Mur-Atal](https://github.com/raulmur), Montiel and Tardós. The successor [ORB_SLAM2](https://github.com/raulmur/ORB_SLAM2) adds support for stereo or depth cameras in addition to a monocular system. What’s especially great is that the algorithms are available as open source under the GPL-v3 license.
 
 ## Prerequisite
 
